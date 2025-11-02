@@ -1,9 +1,10 @@
+import Page from "./Page";
 
 const App = () => {
   return (
-    <div className="text-center text-red-500">
-       Welcome to React
-    </div>
+    < >
+      <Page />
+    </>
   );
 };
 

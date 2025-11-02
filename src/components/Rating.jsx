@@ -1,7 +1,7 @@
 import Star from '../assets/star.svg';
 
-export default function Rating() {
-    const stars = Array(5).fill(Star);
+export default function Rating({value}) {
+    const stars = Array(value).fill(Star);
     return(
         <>
             {
