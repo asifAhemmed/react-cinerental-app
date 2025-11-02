@@ -1,12 +1,15 @@
 import Logo from "../assets/logo.svg";
-import Ring  from "../assets/ring.svg";
-import Sun  from "../assets/icons/sun.svg";
-import CartImage  from "../assets/shopping-cart.svg";
-import { useState } from "react";
+import Ring from "../assets/ring.svg";
+import Sun from "../assets/icons/sun.svg";
+import Moon from "../assets/icons/moon.svg";
+import CartImage from "../assets/shopping-cart.svg";
+import { useContext, useState } from "react";
 import Cart from "./Cart";
+import { ThemeContext } from "../context";
 
 const Header = () => {
     const [showCart, setShowCart] = useState(false);
+    const { darkMode, setDarkMode } = useContext(ThemeContext);
 
     return (
         <header>
@@ -27,12 +30,16 @@ const Header = () => {
                         </a>
                     </li>
                     <li>
-                        <a className="bg-primary/20 dark:bg-primary/7 rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#">
-                            <img src={Sun} width="24" height="24" alt="" />
+                        <a
+                            className="bg-primary/20 dark:bg-primary/7 rounded-lg backdrop-blur-[2px] p-1 inline-block"
+                            href="#"
+                            onClick={() => setDarkMode(darkMode => !darkMode)}
+                        >
+                            <img src={darkMode ? Sun : Moon} width="24" height="24" alt="theme-icon" />
                         </a>
                     </li>
                     <li>
-                        <a onClick={()=>setShowCart(true)} className="bg-primary/20 dark:bg-primary/7 rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#">
+                        <a onClick={() => setShowCart(true)} className="bg-primary/20 dark:bg-primary/7 rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#">
                             <img src={CartImage} width="24" height="24" alt="" />
                         </a>
                     </li>

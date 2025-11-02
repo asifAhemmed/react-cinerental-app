@@ -1,16 +1,19 @@
 import { ToastContainer } from "react-toastify";
 import Page from "./Page";
-import { CartContext } from "./context";
+import { CartContext, ThemeContext } from "./context";
 import { useState } from 'react';
 
 const App = () => {
-  const [cartItems,setCarItems] = useState([]);
+  const [cartItems, setCarItems] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
   return (
     < >
-      <CartContext.Provider value={{cartItems,setCarItems}}>
-        <Page />
-        <ToastContainer />
-      </CartContext.Provider>
+      <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+        <CartContext.Provider value={{ cartItems, setCarItems }}>
+          <Page />
+          <ToastContainer />
+        </CartContext.Provider>
+      </ThemeContext.Provider>
     </>
   );
 };
