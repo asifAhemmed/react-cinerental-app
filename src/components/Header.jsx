@@ -5,11 +5,12 @@ import Moon from "../assets/icons/moon.svg";
 import CartImage from "../assets/shopping-cart.svg";
 import { useContext, useState } from "react";
 import Cart from "./Cart";
-import { ThemeContext } from "../context";
+import { CartContext, ThemeContext } from "../context";
 
 const Header = () => {
     const [showCart, setShowCart] = useState(false);
     const { darkMode, setDarkMode } = useContext(ThemeContext);
+    const {cartItems} = useContext(CartContext);
 
     return (
         <header>
@@ -41,6 +42,11 @@ const Header = () => {
                     <li>
                         <a onClick={() => setShowCart(true)} className="bg-primary/20 dark:bg-primary/7 rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#">
                             <img src={CartImage} width="24" height="24" alt="" />
+                            {cartItems.length > 0 && (
+                                <span className="rounded-full absolute -top-3 left-7 bg-[#12CF6F] text-white text-center p-0.5 w-[30px] h-[30px]">
+                                    {cartItems.length}
+                                </span>
+                            )}
                         </a>
                     </li>
                 </ul>

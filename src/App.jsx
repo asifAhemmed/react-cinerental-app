@@ -11,7 +11,7 @@ const App = () => {
       <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
         <CartContext.Provider value={{ cartItems, setCarItems }}>
           <Page />
-          <ToastContainer />
+          <ToastContainer position="bottom-right" />
         </CartContext.Provider>
       </ThemeContext.Provider>
     </>

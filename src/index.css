@@ -5,12 +5,11 @@
   --color-primary: #00D991;
 }
 
-@components {
-  .container{
-    @apply text-center p-5
-  }
-}
 
 .dark {
     @apply bg-[#171923] text-white
+}
+
+.container{
+  @apply w-[90%] mx-auto p-5
 }
